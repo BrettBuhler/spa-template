@@ -1,0 +1,16 @@
+@keyframes pixelate {
+    from {
+      filter: blur(0);
+      opacity: 1;
+    }
+    to {
+      filter: blur(100px);
+      opacity: 0;
+    }
+  }
+  
+  .pixelate-fade-out {
+    animation: pixelate 5s forwards;
+    image-rendering: pixelated;
+    transform-origin: 0 0;
+  }
