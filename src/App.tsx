@@ -4,11 +4,12 @@ import TopBar from "./components/TopBar"
 import logo from "./assets/react.svg"
 import Hero from "./components/Hero"
 import About from "./components/About"
+import Projects from "./components/Projects"
 import PageInBuffer from "./components/Buffers/PageInBuffer"
-import ToggleSwitch from "./components/Toggle/ToggleSwitch"
 
 //Add an image to the assets folder then change import to your hero background
 import background from "./assets/vertical-low-angle-grayscale-city-buildings-with-cloudy-sky-background.jpg"
+
 
 //Add icons for skills display
 import htmlIcon from './assets/html-48.png'
@@ -19,6 +20,9 @@ import tailwindIcon from './assets/tailwind-css-48.png'
 import githubIcon from './assets/github-48.png'
 import javascriptIcon from './assets/javascript-48.png'
 import viteIcon from './assets/Vite.js.png'
+
+//icons for topbar
+import linkedinIcon from './assets/linked-in-48.png'
 
 const App = () => {
     //Dark's initial state determines whether the default app theme is dark or light
@@ -42,6 +46,13 @@ const App = () => {
 
     ]
 
+ 
+
+    //icons for topbar (set Icons as an empty array to remove icons from top bar. Index 0 is the an image, Index 1 is the link)
+    const topBarIcons:[string, string][] = [[linkedinIcon, "https://www.linkedin.com/"], [githubIcon, "https://github.com/"]]
+
+    const topBarButtons:[string, ()=>void][] = [['Sign In', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")], ['Sign Up', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")]]
+
     return (
         <div className="">
             {/**
@@ -53,15 +64,11 @@ const App = () => {
              * <PixilatedFadeOutBuffer duration={5000}/>
              */}
             <PageInBuffer welcomeMsg={true} delay={600}/>
-            <TopBar title="React App" buttons={[['Sign In', ()=>console.log('HERE')], ['Sign Up', ()=>console.log('Here')]]} logo={logo} links={[["Home", "#home"],["About","#about"], ["Continue", "#section3"]]} dark={dark} highlightLastButton={true}/>
+            <TopBar title="React App" buttons={topBarButtons} logo={logo} links={[["Home", "#home"],["About","#about"], ["Projects", "#projects"]]} icons={topBarIcons} dark={dark} setDark={setDark} highlightLastButton={true}/>
             <Hero title="SPA Template" subTitle="easy portfolios & landing pages" background={background}/>
             <About title="SPA Template" text={aboutText} aboutTitle={"Built With:"}aboutSkills={aboutSkills} dark={dark}/>
-            <section id="section3">
-                <div id="continue" className="h-screen bg-light-theme-dark pt-32 pb-8">
-                    <div className="w-4/5 h-full bg-light-theme-mid-dark mx-auto "></div>
-                </div>
-            </section>
-            <div className="bg-light-theme-mid-light shadow-md shadow-light-theme-dark" style={{height: "100px"}}></div>
+            <Projects dark={dark} />
+            <div className={`shadow-lg ${dark ? "bg-dark-theme-light shadow-dark-theme-dark" : "bg-light-theme-light"}`} style={{height: "100px"}}></div>
         </div>
     )
 }
