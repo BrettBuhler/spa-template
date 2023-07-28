@@ -38,10 +38,10 @@ const Project:React.FC<ProjectProps> = ({ img, title, description, dark }) => {
                 <div className={`flex items-center justify-center font-bold text-center text-3xl border-b-${borderOpacity} ${isHovered ? "" : ""} ${dark ? "bg-dark-theme-mid-light text-gray-100" : "bg-light-theme-mid-light text-gray-950"} absolute top-0 left-0 w-full`} style={{height: isHovered ? '50px' : '0', overflow: "hidden", transition: "height 0.5s ease-in-out"}}>
                     {title}
                 </div>
-                <div className="absolute w-full flex justify-between gap-6 pl-2 pr-2" style={{bottom: isHovered ? 104 : 4, left: 0, transition: "bottom 0.5s ease-in-out"}}>
+                <div className="absolute w-full flex justify-between gap-6 pl-2 pr-2" style={{bottom: isHovered ? 106 : 6, left: 0, transition: "bottom 0.5s ease-in-out"}}>
                     {buttons.length > 0 && (
                         buttons.map((item, i) => (
-                            <a href={item[1]} target="__blank" key={`project_button_${i}`} className={`text-center p-2 w-1/3 text-lg font-semibold rounded-xl ${dark ? "bg-dark-theme-mid-dark border-2 border-white text-gray-100" : "bg-light-theme-mid-dark border-2 border-black text-gray-950"}`}>{item[0]}</a>
+                            <a href={item[1]} target="__blank" key={`project_button_${i}`} className={`shadow-md shadow-black text-center p-2 w-1/3 text-lg font-semibold rounded-xl ${dark ? "bg-dark-theme-mid-dark border-2 border-white text-gray-100" : "bg-light-theme-mid-dark border-2 border-black text-gray-950"}`}>{item[0]}</a>
                         )) 
                     )}
                 </div>
