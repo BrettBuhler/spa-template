@@ -6,6 +6,7 @@ import Hero from "./components/Hero"
 import About from "./components/About"
 import Projects from "./components/Projects"
 import PageInBuffer from "./components/Buffers/PageInBuffer"
+import Footer from "./components/Footer"
 
 //Add an image to the assets folder then change import to your hero background
 import background from "./assets/vertical-low-angle-grayscale-city-buildings-with-cloudy-sky-background.jpg"
@@ -23,6 +24,12 @@ import viteIcon from './assets/Vite.js.png'
 
 //icons for topbar
 import linkedinIcon from './assets/linked-in-48.png'
+
+//background images for projects
+import teamProjectImg from './assets/Team-project.jpg'
+import aiImage1 from './assets/ai_img_1.png'
+import flashStudyImg from './assets/flashstudy1.png'
+import aiImage2 from './assets/ai_img_2.png'
 
 const App = () => {
     //Dark's initial state determines whether the default app theme is dark or light
@@ -46,11 +53,18 @@ const App = () => {
 
     ]
 
- 
+    /** Project items to go in the Projects component [Image, Title, Description] */
+    const projectItems: [string, string, string][] = [
+        [teamProjectImg, 'Project', 'This isn\'t a real project, and the links wont take you anywhere. Keep descriptions Short'],
+        [aiImage1, 'Unique', 'No limits to creativity. Add your own projects and showcase your brilliance here!'],
+        [flashStudyImg, "Flash Study", "AI powered Full Stack Web App designed to automate the study process"],
+        [aiImage2, "Do What you waant", "SPA template gives you the skelleton to craft your personal portfolio on top of. Use what you like, trash what you don't"]
+    ]
 
     //icons for topbar (set Icons as an empty array to remove icons from top bar. Index 0 is the an image, Index 1 is the link)
     const topBarIcons:[string, string][] = [[linkedinIcon, "https://www.linkedin.com/"], [githubIcon, "https://github.com/"]]
-
+    //buttons for topBar Buttons are an array with the 0 index being the display text and index 1 being an onClick function. to make the right most
+    //button have a highlighted style, set highlightLastButton to true in the TopBar Component.
     const topBarButtons:[string, ()=>void][] = [['Sign In', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")], ['Sign Up', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")]]
 
     return (
@@ -67,8 +81,8 @@ const App = () => {
             <TopBar title="React App" buttons={topBarButtons} logo={logo} links={[["Home", "#home"],["About","#about"], ["Projects", "#projects"]]} icons={topBarIcons} dark={dark} setDark={setDark} highlightLastButton={true}/>
             <Hero title="SPA Template" subTitle="easy portfolios & landing pages" background={background}/>
             <About title="SPA Template" text={aboutText} aboutTitle={"Built With:"}aboutSkills={aboutSkills} dark={dark}/>
-            <Projects dark={dark} />
-            <div className={`shadow-lg ${dark ? "bg-dark-theme-light shadow-dark-theme-dark" : "bg-light-theme-light"}`} style={{height: "100px"}}></div>
+            <Projects dark={dark} title="Projects" projects={projectItems}/>
+            <Footer dark={dark} />
         </div>
     )
 }

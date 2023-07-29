@@ -1,15 +1,20 @@
 import Project from "./Project"
-import projectImg from '../assets/Team-project.jpg'
+
 interface ProjectsProps {
     dark: boolean
+    title: string
     projects: [string, string, string][]
 }
 
-const Projects:React.FC<ProjectsProps> = ({dark, projects}) => {
+const Projects:React.FC<ProjectsProps> = ({dark, title, projects}) => {
     return (
         <section id="projects" className={`flex items-center flex-col min-h-screen w-full ${dark ? "bg-dark-theme-mid-dark" : "bg-light-theme-mid-light"}`}>
-            <div className={`w-4/5 flex-grow ${dark ? "bg-dark-theme-mid-light" : "bg-light-theme-mid-dark"} pt-32`}>
-                <Project img={projectImg} title="Project" description="This is a project. Add more text to see how things work. this is some more text. I don't know How much I can write" dark={dark}/>
+            <h2 className={`pt-32 text-4xl pb-4 font-bold ${dark ? "text-gray-100" : "text-gray-950"}`}>{title}</h2>
+            <div className={`flex-grow flex justify-center flex-wrap gap-4 p-4 `} style={{maxWidth: '90%'}}>
+                {projects.length > 0 && (projects.map((project, i) => 
+                    <div key={`project_${i}`}>
+                        <Project img={project[0]} title={project[1]} description={project[2]} dark={dark} />
+                    </div>))}
             </div>
         </section>
     )

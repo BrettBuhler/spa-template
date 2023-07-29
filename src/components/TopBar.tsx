@@ -45,7 +45,7 @@ const TopBar:React.FC<TopBarProps> = ({title = "PlaceHolder", buttons = [], logo
 
     //background color
     return (
-        <div className={`z-50 fixed top-0 left-0 right-0 w-full border-b-2 border-custom-border flex flex-row justify-between items-center ${scrolledToTop ? "bg-transparent" : `${dark ? "bg-dark-theme-light shadow-dark-theme-dark" : "bg-light-theme-light shadow-light-theme-dark"} pb-2 pt-2 fade-in vis shadow-sm`}`} style={topBarStyle}>
+        <div id='topbar' className={`z-50 fixed top-0 left-0 right-0 w-full border-b-2 border-custom-border flex flex-row justify-between items-center ${scrolledToTop ? "bg-transparent" : `${dark ? "bg-dark-theme-light shadow-dark-theme-dark" : "bg-light-theme-light shadow-light-theme-dark"} pb-2 pt-2 fade-in vis shadow-sm`}`} style={topBarStyle}>
             <div id="topbar-left" className="pl-4 flex">
                 <div className="flex flex-row gap-4 items-center text-2xl font-bold">
                     {logo === "" ? null : <img src={logo} alt="logo" className="h-12 w-12 mt-4 mb-4"></img>}
