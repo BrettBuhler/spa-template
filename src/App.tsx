@@ -30,10 +30,12 @@ import teamProjectImg from './assets/Team-project.jpg'
 import aiImage1 from './assets/ai_img_1.png'
 import flashStudyImg from './assets/flashstudy1.png'
 import aiImage2 from './assets/ai_img_2.png'
+import SideBar from "./components/SideBar"
 
 const App = () => {
     //Dark's initial state determines whether the default app theme is dark or light
     const [dark, setDark] = useState<boolean>(true)
+    const [isOpen, setIsOpen] = useState<boolean>(false)
 
     const aboutText = [
         "Are you looking for a versatile and powerful Single Page Application (SPA) template that seamlessly integrates React and TypeScript? Look no further! Our cutting-edge SPA template is meticulously crafted to provide a solid foundation for your projects, offering the perfect balance between ease of use for newcomers and unlimited flexibility for seasoned React and TypeScript developers.",
@@ -77,12 +79,13 @@ const App = () => {
              * Other Options for Buffer: (You will need to import the component at the top of the file)
              * <PixilatedFadeOutBuffer duration={5000}/>
              */}
-            <PageInBuffer welcomeMsg={true} delay={600}/>
-            <TopBar title="React App" buttons={topBarButtons} logo={logo} links={[["Home", "#home"],["About","#about"], ["Projects", "#projects"]]} icons={topBarIcons} dark={dark} setDark={setDark} highlightLastButton={true}/>
+            <PageInBuffer welcomeMsg={true} delay={1000}/>
+            <TopBar title="React App" buttons={topBarButtons} logo={logo} links={[["Home", "#home"],["About","#about"], ["Projects", "#projects"]]} icons={topBarIcons} dark={dark} setDark={setDark} highlightLastButton={true} isOpen={isOpen} setIsOpen={setIsOpen}/>
             <Hero title="SPA Template" subTitle="easy portfolios & landing pages" background={background}/>
             <About title="SPA Template" text={aboutText} aboutTitle={"Built With:"}aboutSkills={aboutSkills} dark={dark}/>
             <Projects dark={dark} title="Projects" projects={projectItems}/>
             <Footer dark={dark} />
+            <SideBar isOpen={isOpen} setIsOpen={setIsOpen} dark={dark} setDark={setDark} />
         </div>
     )
 }

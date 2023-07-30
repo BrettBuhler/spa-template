@@ -19,6 +19,7 @@ const Footer:React.FC<FooterProps> = ({dark}) => {
             setLightBackground(getBackgroundColorById('light-color'))
         }
     }, [dark])
+    
     const getBackgroundColorById = (elementId: string):string => {
         const element = document.getElementById(elementId)
         if (element) {
@@ -40,7 +41,7 @@ const Footer:React.FC<FooterProps> = ({dark}) => {
             <div className="flex justify-center items-center h-full text-center absolute inset-0 pt-8 text-lg">
                 <span className={`${dark ? "text-gray-100" : "text-gray-950"} font-bold`}>Designed by <a href='https://www.brettbuhler.com' target="_blank">Brett Buhler</a></span>
             </div>
-            {/*bottom two divs are used to get theme color*/}
+            {/*The two divs below are used to get theme color from tailwind config*/}
             <div id="light-color" className={`h-1 w-1 absolute ${dark ? "bg-dark-theme-light" : 'bg-light-theme-light'}`} style={{zIndex: "-1"}}></div>
             <div id="dark-color" className={`h-1 w-1 absolute ${dark ? "bg-dark-theme-dark": "bg-light-theme-dark"}`} style={{zIndex: "-1"}}></div>
             <svg viewBox="0 -20 700 110" width="100%" height="110" preserveAspectRatio="none">

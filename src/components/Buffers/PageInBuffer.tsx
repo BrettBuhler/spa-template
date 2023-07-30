@@ -27,7 +27,7 @@ const PageInBuffer:React.FC<PageInBufferProps> = ({ welcomeMsg = true, delay = 6
 
     if (isBuffer){
         return (
-        <div className="absolute top-0 left-0 h-screen w-full flex z-10">
+        <div className="fixed top-0 left-0 h-screen w-full flex z-50 pointer-events-none">
             <div className="flex flex-row w-full h-full">
                 <div ref={(element)=> (curtainsRef.current[0] = element)}className="w-1/2 bg-black curtain flex items-center justify-end">
                     {welcomeMsg && (

@@ -1,3 +1,4 @@
+import AOS from "aos"
 interface AboutProps {
     dark?: boolean
     title?: string
@@ -14,7 +15,7 @@ const About: React.FC<AboutProps> = ({ dark = true, title = "Place Holder", text
           <h2 className={`text-4xl text-center font-bold ${dark ? "text-gray-100" : "text-gray-950"}`}>{title}</h2>
                     <div className="flex flex-col h-3/5 text-xl font-semibold mt-6 ml-6 mr-6">
                         {text.map((paragraph, i) => 
-                            <div>
+                            <div key={`paragraph_key_${i}`}>
                                 <p key={`about_paragraph_${i}`} className={`flex-grow ${dark ? "text-gray-100" : "text-gray-950"}`}>{paragraph}</p>
                                 {i < text.length - 1 && (<br></br>)}
                             </div>
@@ -26,6 +27,7 @@ const About: React.FC<AboutProps> = ({ dark = true, title = "Place Holder", text
             <div className="h-full flex flex-wrap items-center justify-center gap-4 flex-grow mt-8">
               {aboutSkills.map((skill, i) => (
                 <div
+                  data-aos="slide-left"
                   className={`flex flex-col items-center border-2 justify-center shadow-lg rounded-lg ${dark ? "bg-dark-theme-light" : "bg-light-theme-light"}`}
                   style={{ minWidth: "140px", minHeight: "140px" }}
                   key={`skill_key_${i}`}
