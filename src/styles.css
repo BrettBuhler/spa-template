@@ -42,32 +42,6 @@
     }
   }
 
-/* Basic styling for the link */
-.underline-link {
-  position: relative;
-  color: #000; /* Set your desired text color */
-  text-decoration: none;
-}
-
-/* Pseudo-element for the underline */
-.underline-link::after {
-  content: '';
-  position: absolute;
-  left: 50%; /* Start the underline from the center */
-  bottom: 0;
-  width: 0;
-  height: 2px; /* Set your desired underline height */
-  background-color: #000; /* Set your desired underline color */
-  transition: width 0.3s ease-out;
-  transform: translateX(-50%); /* Center the underline */
-}
-
-/* Hover animation */
-.underline-link:hover::after {
-  width: calc(100% - 20px); /* Calculate the width for the underline */
-  /* 20px is the distance from the center to the edge, adjust it as needed */
-}
-
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
