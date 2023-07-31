@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react"
 
 import { DarkModeToggle } from "react-dark-mode-toggle-2"
 import HamburgerMenu from "./HamburgerMenu"
+import AnimatedUnderlineLink from "./AnimatedUnderlineLink"
 
 interface TopBarProps {
     title?: string
@@ -52,7 +53,7 @@ const TopBar:React.FC<TopBarProps> = ({title = "PlaceHolder", buttons = [], logo
     }, [])
 
     useEffect(()=> {
-        if (screenWidth < 725) {
+        if (screenWidth < 760) {
             setIsMobile1(true)
         } else {
             setIsMobile1(false)
@@ -86,7 +87,7 @@ const TopBar:React.FC<TopBarProps> = ({title = "PlaceHolder", buttons = [], logo
 
     //background color
     return (
-        <div className={`${loadIn ? "opacity-1" : "opacity-0"}`} style={{transition: "opacity 0.2s ease-in-out"}}>
+        <div className={`w-screen ${loadIn ? "opacity-1" : "opacity-0"}`} style={{transition: "opacity 0.2s ease-in-out",}}>
             <div id='topbar' className={`z-40 fixed top-0 left-0 right-0 w-full border-b-2 border-custom-border flex flex-row justify-between items-center ${scrolledToTop ? "bg-transparent" : `${dark ? "bg-dark-theme-light shadow-dark-theme-dark" : "bg-light-theme-light shadow-light-theme-dark"} pb-2 pt-2 fade-in vis shadow-sm`}`} style={topBarStyle}>
                 <div id="topbar-left" className="pl-4 flex">
                     <div className="flex flex-row gap-4 items-center text-2xl font-bold">
@@ -97,7 +98,7 @@ const TopBar:React.FC<TopBarProps> = ({title = "PlaceHolder", buttons = [], logo
                     {/**Link color */}
                     {!isMobile2 && (
                         <div className={`font-semibold flex flex-row gap-4 items-center ml-8 text-md pt-2 ${dark ? "text-gray-100" : scrolledToTop ? "text-gray-100" : "text-gray-950"}`}>
-                            {links.length > 0 && (links.map((item: any, i)=>(<a className="nav-button" key={`links_${i}`} href={item[1]}>{item[0]}</a>)))}
+                            {links.length > 0 && (links.map((item: any, i)=>(<div key={`animated_underline_${i}`}><AnimatedUnderlineLink text={item[0]} link={item[1]} dark={dark} scrolledToTop={scrolledToTop}/></div>)))}
                         </div>
                     )}
                 </div>

@@ -31,6 +31,7 @@ const Project:React.FC<ProjectProps> = ({ img, title, description, dark }) => {
         }
     },[isHovered])
 
+
     const updateScreen = () => {
         setScreenWidth(window.innerWidth)
         setScreenHeight(window.innerHeight)

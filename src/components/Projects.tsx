@@ -12,7 +12,7 @@ const Projects:React.FC<ProjectsProps> = ({dark, title, projects}) => {
             <h2 className={`pt-20 text-4xl pb-4 font-bold ${dark ? "text-gray-100" : "text-gray-950"}`}>{title}</h2>
             <div className={`flex-grow flex justify-center flex-wrap gap-4 p-4 `} style={{maxWidth: '90%'}}>
                 {projects.length > 0 && (projects.map((project, i) => 
-                    <div key={`project_${i}`}>
+                    <div data-aos="fade-up" key={`project_${i}`}>
                         <Project img={project[0]} title={project[1]} description={project[2]} dark={dark} />
                     </div>))}
             </div>

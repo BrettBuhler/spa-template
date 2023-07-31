@@ -6,6 +6,14 @@ interface PageInBufferProps {
 const PageInBuffer:React.FC<PageInBufferProps> = ({ welcomeMsg = true, delay = 600 }) => {
     const [isBuffer, setIsBuffer] = useState<boolean>(true)
     const curtainsRef = useRef<Array<HTMLDivElement | null>>([])
+    const getCWidth = () => {
+        const element = document.getElementById("c_char")
+        if (element) {
+            return element.offsetWidth
+        }
+        return 0
+    }
+    const [cWidth] = useState<number>(getCWidth())
 
     useEffect(()=>{
         setTimeout(()=>{
@@ -27,20 +35,20 @@ const PageInBuffer:React.FC<PageInBufferProps> = ({ welcomeMsg = true, delay = 6
 
     if (isBuffer){
         return (
-        <div className="fixed top-0 left-0 h-screen w-full flex z-50 pointer-events-none">
-            <div className="flex flex-row w-full h-full">
-                <div ref={(element)=> (curtainsRef.current[0] = element)}className="w-1/2 bg-black curtain flex items-center justify-end">
+            <div className="fixed top-0 h-screen w-screen flex z-50 pointer-events-none" style={{right: `-${cWidth/2}`}}>
+                <div className="flex flex-row w-full h-full">
+                    <div ref={(element)=> (curtainsRef.current[0] = element)}className="w-1/2 bg-black curtain flex items-center justify-end">
+                        {welcomeMsg && (
+                            <div className="text-white font-bold text-5xl md:text-6xl lg:text-8xl">Wel</div>
+                        )}
+                    </div>
+                    <div ref={(element) => (curtainsRef.current[1] = element)}className="w-1/2 bg-black curtain flex items-center justify-start">
                     {welcomeMsg && (
-                        <div className="text-white font-bold text-8xl">Wel</div>
+                        <div className="text-white font-bold text-5xl md:text-6xl lg:text-8xl"><div id="c_char"className="inline">c</div>ome</div>
                     )}
-                </div>
-                <div ref={(element) => (curtainsRef.current[1] = element)}className="w-1/2 bg-black curtain flex items-center justify-start">
-                {welcomeMsg && (
-                    <div className="text-white font-bold text-8xl">come</div>
-                )}
+                    </div>
                 </div>
             </div>
-        </div>
         )
     } else {
         return null
