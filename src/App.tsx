@@ -71,13 +71,16 @@ const App = () => {
         [javascriptIcon, "JavaScript"],
         [viteIcon, "Vite"]
     ]
-
-    /** Project items to go in the Projects component [Image, Title, Description] */
-    const projectItems: [string, string, string][] = [
-        [teamProjectImg, 'Project', 'This isn\'t a real project, and the links wont take you anywhere. Keep descriptions Short'],
-        [aiImage1, 'Unique', 'No limits to creativity. Add your own projects and showcase your brilliance here!'],
-        [flashStudyImg, "Flash Study", "AI powered Full Stack Web App designed to automate the study process"],
-        [aiImage2, "Do What you waant", "SPA template gives you the skelleton to craft your personal portfolio on top of. Use what you like, trash what you don't"]
+    /** DummyLink links / text for the base example. Remove this from your own projects*/
+    const dummyLink = "https://github.com/BrettBuhler/spa-template"
+    const loremIpsum = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    
+    /** Project items to go in the Projects component [Image, Title, Description, [Innter text, eact new element is a line break], [[button display text, button link]]] */
+    const projectItems: [string, string, string, string[], string[][]][] = [
+        [teamProjectImg, 'Example 1', 'This is some description text. Keep it short!',["This example has one button", "this is some project innter text","this is a new line","on small screens this text might be hidden"], [["one", dummyLink]]],
+        [aiImage1, 'Exampe 2', 'No limits to creativity. Add your own projects and showcase your brilliance here!',[loremIpsum],[["one", dummyLink], ["two", dummyLink]]],
+        [aiImage2, "Example 3", "SPA template gives you the skelleton to craft your personal portfolio. Use what you like.",[loremIpsum],[["one", dummyLink],["two", dummyLink],["three", dummyLink]]],
+        [flashStudyImg, "Flash Study", "AI powered Full Stack Web App designed to automate the study process.",["Front End: React.js TypeScript / JavaScript HTML CSS", "Back End: Node.js Express.js MongoDB", "Payments: Stripe","Authentication: Passport.js", "Cloud Services: Google Cloud Platform"],[["Site","https://flash-study.uc.r.appspot.com/"],["Code", "https://github.com/BrettBuhler/flash-study"],["Demo", "https://www.youtube.com/watch?v=Z50n7F_hAdc"]]]
     ]
 
     //icons for topbar (set Icons as an empty array to remove icons from top bar. Index 0 is the an image, Index 1 is the link)
@@ -87,6 +90,7 @@ const App = () => {
     //button have a highlighted style, set highlightLastButton to true in the TopBar Component.
     const topBarButtons:[string, ()=>void][] = [['Sign In', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")], ['Sign Up', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")]]
 
+    /**Top bar / sidebar links first index is the desplayed text, second is the section to scroll to (Leave as is unless you are adding to the base site or making a landing page with different secitons)*/
     const topBarLinks:[string,string][] = [["Home", "#home"],["About","#about"], ["Projects", "#projects"]]
 
     return (
