@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react"
-import SideBar from "./SideBar"
 
 interface HamburgerMenuProps {
     dark: boolean

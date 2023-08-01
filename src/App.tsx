@@ -15,7 +15,7 @@ import PageInBuffer from "./components/Buffers/PageInBuffer"
 import Footer from "./components/Footer"
 
 //Add an image to the assets folder then change import to your hero background
-import background from "./assets/vertical-low-angle-grayscale-city-buildings-with-cloudy-sky-background.jpg"
+import background from "./assets/night-sky-glows-with-iridescent-deep-space-generative-ai.jpg"
 
 
 //Add icons for skills display
@@ -26,7 +26,12 @@ import typescriptIcon from './assets/typescript-48.png'
 import tailwindIcon from './assets/tailwind-css-48.png'
 import githubIcon from './assets/github-48.png'
 import javascriptIcon from './assets/javascript-48.png'
-import viteIcon from './assets/Vite.js.png'
+import sqlIcon from './assets/sql-50.png'
+import postgresIcon from './assets/postgres-48.png'
+import googleCloudIcon from './assets/google-cloud-48.png'
+import mongoDBIcon from './assets/mongodb-48.png'
+import nodeIcon from "./assets/node-js-48.png"
+import expressIcon from './assets/express-js-48.png'
 
 //icons for topbar
 import linkedinIcon from './assets/linked-in-48.png'
@@ -56,20 +61,25 @@ const App = () => {
     Fill Your about section with differnt chunks of text each sperate string indiates a line break. About text can have as many lines / page breaks as you like. 
      */
     const aboutText = [
-        "Are you looking for a versatile and powerful Single Page Application (SPA) template that seamlessly integrates React and TypeScript? Look no further! Our cutting-edge SPA template is meticulously crafted to provide a solid foundation for your projects, offering the perfect balance between ease of use for newcomers and unlimited flexibility for seasoned React and TypeScript developers.",
-        "Whether you need a simple portfolio website or an engaging landing page, our template is the ideal starting point. Upon cloning the GitHub repository, you'll find everything set up and ready to go. You can jump right into the development process without spending precious time on tedious configurations.",
+        "Welcome to my portfolio website! I'm Brett Buhler, a results-driven Full Stack Web Developer with a passion for AI and a creative flair for designing and implementing front and back-end web applications. I am enthusiastic about finding innovative solutions to real-world problems and strive to create web experiences that are not only visually appealing but also highly functional and user-friendly.",
+        ""
     ]
 
     /** Skills to fill in the aboutSKills section index 0 is an image, index 1 is the display name */
     const aboutSkills: [string, string][] = [
-        [htmlIcon, "HTML"],
-        [reactIcon, "React"],
-        [cssIcon, "CSS"],
         [typescriptIcon, "TypeScript"],
-        [tailwindIcon, "Tailwind CSS"],
-        [githubIcon, "Git Hub"],
         [javascriptIcon, "JavaScript"],
-        [viteIcon, "Vite"]
+        [nodeIcon, "Node.js"],
+        [expressIcon, "Express.js"],
+        [reactIcon, "React"],
+        [htmlIcon, "HTML"],
+        [cssIcon, "CSS"],
+        [tailwindIcon, "Tailwind CSS"],
+        [sqlIcon, "SQL"],
+        [postgresIcon, "PostgresSQL"],
+        [mongoDBIcon, "Mongo DB"],
+        [googleCloudIcon, "Google Cloud"],
+
     ]
     /** DummyLink links / text for the base example. Remove this from your own projects*/
     const dummyLink = "https://github.com/BrettBuhler/spa-template"
@@ -84,11 +94,11 @@ const App = () => {
     ]
 
     //icons for topbar (set Icons as an empty array to remove icons from top bar. Index 0 is the an image, Index 1 is the link)
-    const topBarIcons:[string, string][] = [[linkedinIcon, "https://www.linkedin.com/"], [githubIcon, "https://github.com/"]]
+    const topBarIcons:[string, string][] = [[linkedinIcon, "https://www.linkedin.com/in/brett-buhler-a7522a1b6/"], [githubIcon, "https://github.com/BrettBuhler"]]
 
     //buttons for topBar Buttons are an array with the 0 index being the display text and index 1 being an onClick function. to make the right most
     //button have a highlighted style, set highlightLastButton to true in the TopBar Component.
-    const topBarButtons:[string, ()=>void][] = [['Sign In', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")], ['Sign Up', ()=>alert("Set Up Your own functions in App.tsx, and add them to topBarButtons")]]
+    const topBarButtons:[string, ()=>void][] = []
 
     /**Top bar / sidebar links first index is the desplayed text, second is the section to scroll to (Leave as is unless you are adding to the base site or making a landing page with different secitons)*/
     const topBarLinks:[string,string][] = [["Home", "#home"],["About","#about"], ["Projects", "#projects"]]
@@ -112,10 +122,10 @@ const App = () => {
              * links: navigation links index 0 is the text to be displayed index 1 is the section id (default sections are #home, #about, #projects)
              * icons: 
              */}
-            <TopBar title="React App" highlightLastButton={true} buttons={topBarButtons} logo={logo} links={topBarLinks} icons={topBarIcons} dark={dark} setDark={setDark} isOpen={isOpen} setIsOpen={setIsOpen}/>
-            <Hero title="SPA Template" subTitle="easy portfolios & landing pages" background={background}/>
-            <About title="SPA Template" text={aboutText} aboutTitle="Built With:" aboutSkills={aboutSkills} dark={dark}/>
-            <Projects dark={dark} title="Projects" projects={projectItems}/>
+            <TopBar title="My Portfolio" highlightLastButton={true} buttons={topBarButtons} logo={logo} links={topBarLinks} icons={topBarIcons} dark={dark} setDark={setDark} isOpen={isOpen} setIsOpen={setIsOpen}/>
+            <Hero title="Brett Buhler" subTitle="Full Stack Web Developer" background={background}/>
+            <About title="About Me" text={aboutText} aboutTitle="My Skills" aboutSkills={aboutSkills} dark={dark}/>
+            <Projects dark={dark} title="My Work" projects={projectItems}/>
             <Footer dark={dark} />
             <SideBar isOpen={isOpen} setIsOpen={setIsOpen} dark={dark} setDark={setDark} links={topBarLinks} buttons={topBarButtons} icons={topBarIcons}/>
         </div>
