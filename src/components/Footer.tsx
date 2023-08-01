@@ -37,7 +37,7 @@ const Footer:React.FC<FooterProps> = ({dark}) => {
     }
 
     return (
-        <footer className={`relative ${dark ? "bg-dark-theme-mid-light" : "bg-light-theme-mid-light"}`}>
+        <footer className={`relative ${dark ? "bg-dark-theme-mid-dark" : "bg-light-theme-mid-light"}`}>
             <div className="flex justify-center items-center h-full text-center absolute inset-0 pt-8 text-lg">
                 <span className={`${dark ? "text-gray-100" : "text-gray-950"} font-bold`}>Designed by <a href='https://www.brettbuhler.com' target="_blank">Brett Buhler</a></span>
             </div>

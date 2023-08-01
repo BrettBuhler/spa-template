@@ -60,7 +60,7 @@ const Project:React.FC<ProjectProps> = ({ img, title, description, dark, project
                     </div>
                 )}
             </div>
-            <div className={`flex items-center justify-center font-bold text-center text-3xl ${borderOpacity ? "border-b-4" : ""} ${isHovered ? "border-b-4" : ""} ${dark ? "bg-dark-theme-mid-dark text-gray-100" : "bg-light-theme-mid-dark text-gray-950"} absolute top-0 left-0 w-full`} style={{height: isHovered ? '50px' : '0', overflow: "hidden", transition: "height 0.5s ease-in-out"}}>
+            <div className={`flex items-center justify-center font-bold text-center text-3xl ${borderOpacity ? "border-b-4" : ""} ${isHovered ? "border-b-4" : ""} ${dark ? "bg-dark-theme-light text-gray-100" : "bg-light-theme-light text-gray-950"} absolute top-0 left-0 w-full`} style={{height: isHovered ? '50px' : '0', overflow: "hidden", transition: "height 0.5s ease-in-out"}}>
                 {title}
             </div>
             <div className="absolute w-full flex justify-between gap-6 pl-2 pr-2" style={{bottom: isHovered ? 106 : 6, left: 0, transition: "bottom 0.5s ease-in-out"}}>
@@ -70,7 +70,7 @@ const Project:React.FC<ProjectProps> = ({ img, title, description, dark, project
                     )) 
                 )}
             </div>
-            <div className={`items-center text-center font-semibold flex pl-2 pr-2 text-lg rounded-b-sm ${borderOpacity ? "border-t-4": ""} ${isHovered ? "border-t-4" : ""} ${dark ? "bg-dark-theme-mid-dark text-gray-100" : "bg-light-theme-mid-dark text-gray-950"} absolute bottom-0 left-0 w-full`} style={{height: isHovered ? '100px' : '0', overflow: "hidden", transition: "height 0.5s ease-in-out"}}>
+            <div className={`items-center text-center font-semibold flex pl-2 pr-2 text-lg rounded-b-sm ${borderOpacity ? "border-t-4": ""} ${isHovered ? "border-t-4" : ""} ${dark ? "bg-dark-theme-light text-gray-100" : "bg-light-theme-light text-gray-950"} absolute bottom-0 left-0 w-full`} style={{height: isHovered ? '100px' : '0', overflow: "hidden", transition: "height 0.5s ease-in-out"}}>
                 {description}
             </div>
         </div>

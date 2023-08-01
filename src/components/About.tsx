@@ -12,9 +12,9 @@ const About: React.FC<AboutProps> = ({ dark = true, title = "Place Holder", text
     return (
       <section id="about" className={` w-full ${dark ? "bg-dark-theme-dark" : "bg-light-theme-dark"} transition-colors`}>
         <div className="flex  flex-col justify-center gap-4 h-full lg:flex-row" style={{ paddingTop: "130px", paddingBottom: "130px" }}>
-          <div data-aos="fade-down" className={`w-full lg:w-1/2 lg:ml-4 flex flex-col`}>
+          <div data-aos="fade-down" className={`w-full lg:w-1/2 lg:ml-4`}>
           <h2 id="about_first_h2" className={`text-4xl text-center font-bold ${dark ? "text-gray-100" : "text-gray-950"}`}>{title}</h2>
-                    <div className="flex flex-col text-xl font-semibold mt-6 ml-6 mr-6  flex-grow justify-evenly">
+                    <div className="flex flex-col h-3/5 text-xl font-semibold mt-6 ml-6 mr-6">
                         {text.map((paragraph, i) => 
                             <div data-aos-anchor="#about_first_h2" data-aos="fade-down" data-aos-delay={`${i * 100}`} key={`paragraph_key_${i}`}>
                                 <p key={`about_paragraph_${i}`} className={`flex-grow ${dark ? "text-gray-100" : "text-gray-950"}`}>{paragraph}</p>
