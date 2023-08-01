@@ -2,6 +2,8 @@
 
 This is a versatile Single Page Application (SPA) template that seamlessly integrates React and TypeScript. It provides a solid foundation for creating your personal portfolio or landing page. Whether you're a newcomer or an experienced React developer, this template is designed to be easy to use yet highly flexible.
 
+Video Demo [here](https://www.youtube.com/watch?v=3NPs640Cv6A)
+
 ## Customization Made Easy
 
 With this template, customization is straightforward, and you can create a fantastic customized portfolio with minimal effort. Here's how you can personalize the template:
